@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PostaScannerApp</string>
+    <string name="action_settings">Settings</string>
+    <string name="textView">TextView</string>
+    <string name="DETAILS">DETAILS</string>
+    <string name="externalProcess">externalProcess</string>
+</resources>
