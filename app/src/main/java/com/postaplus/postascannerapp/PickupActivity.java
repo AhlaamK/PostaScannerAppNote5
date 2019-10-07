@@ -30,6 +30,7 @@ import koamtac.kdc.sdk.KDCConstants;
 import koamtac.kdc.sdk.KDCData;
 import koamtac.kdc.sdk.KDCDataReceivedListener;
 import koamtac.kdc.sdk.KDCReader;
+import utils.Utils;
 
 
 public class PickupActivity extends FragmentActivity implements
@@ -366,7 +367,7 @@ Thread ThrKdc;
           ScannerData = pData;
           PickupActivity.WaybillFromScanner = ScannerData.GetData();
 
-          if (Check_ValidWaybill(pData.GetData()) == true) {
+          if (Utils.Check_ValidWaybill(pData.GetData()) == true) {
 
               // System.out.println(" - PTA Constant ID : ");
               // System.out.println(R.id.PTA_Frame);
@@ -449,25 +450,7 @@ Thread ThrKdc;
           }
 
       }
- 
- public static boolean Check_ValidWaybill (String s){
-		
-		if (s.length() == 10 || s.length() == 12)
-		{
-			if (StringUtils.isNumeric(s) == true)
-					return true;
-			else
-					return false;
-		}
-		else if (s.length() == 18)
-		{
-			if (StringUtils.isAlphanumeric(s) == true)
-				return true;
-			else
-				return false;
-		}
-		return false;
-	}
+
  
 
   

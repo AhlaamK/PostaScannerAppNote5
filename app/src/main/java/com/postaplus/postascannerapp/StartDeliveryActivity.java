@@ -70,6 +70,7 @@ import koamtac.kdc.sdk.KDCConstants;
 import koamtac.kdc.sdk.KDCData;
 import koamtac.kdc.sdk.KDCDataReceivedListener;
 import koamtac.kdc.sdk.KDCReader;
+import utils.Utils;
 import webservice.WebService;
 
 import static com.postaplus.postascannerapp.HomeActivity.rstnumbr;
@@ -4077,7 +4078,7 @@ public class StartDeliveryActivity extends MasterActivity
 
            /* if(Check_ValidWaybill(pData.GetData())==true)
             {*/
-            if (Check_ValidWaybill(barcodefrmScanner) == true) {
+            if (Utils.Check_ValidWaybill(barcodefrmScanner) == true) {
                 System.out.println(" StartDeliveryactivity ID : ");
                 // System.out.println(R.id.WC_Frame);
                 //  System.out.println(" value for pdata is : ");
@@ -4162,15 +4163,6 @@ public class StartDeliveryActivity extends MasterActivity
 
     }
 
-    public static boolean Check_ValidWaybill(String s) {
-
-        if (s.length() == 10 || s.length() == 12) {
-            return StringUtils.isNumeric(s) == true;
-        } else if (s.length() == 18) {
-            return StringUtils.isAlphanumeric(s) == true;
-        }
-        return false;
-    }
 
 
 

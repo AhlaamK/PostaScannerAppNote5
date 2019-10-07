@@ -28,6 +28,7 @@ import koamtac.kdc.sdk.KDCConstants;
 import koamtac.kdc.sdk.KDCData;
 import koamtac.kdc.sdk.KDCDataReceivedListener;
 import koamtac.kdc.sdk.KDCReader;
+import utils.Utils;
 import webservice.WebService;
 
 import static com.postaplus.postascannerapp.MasterActivity.db;
@@ -389,7 +390,7 @@ public class DialogActivity extends Activity implements View.OnClickListener ,
             waybill = ScannerData.GetData();
             // StartDeliveryActivity.WaybillFromScanner = ScannerData.GetData();
 
-            if(Check_ValidWaybill(pData.GetData())==true)
+            if(Utils.Check_ValidWaybill(pData.GetData())==true)
             {
 
                 System.out.println(" dialo ID : ");
@@ -447,18 +448,7 @@ public class DialogActivity extends Activity implements View.OnClickListener ,
 
     }
 
-    public static boolean Check_ValidWaybill (String s){
 
-        if (s.length() == 10 || s.length() == 12)
-        {
-            return StringUtils.isNumeric(s) == true;
-        }
-        else if (s.length() == 18)
-        {
-            return StringUtils.isAlphanumeric(s) == true;
-        }
-        return false;
-    }
 
 
 

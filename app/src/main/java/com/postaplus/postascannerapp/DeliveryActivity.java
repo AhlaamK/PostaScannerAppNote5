@@ -28,6 +28,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import TabsPagerAdapter.TabsPagerAdapter;
 import koamtac.kdc.sdk.*;
+import utils.Utils;
 
 
 public class  DeliveryActivity extends FragmentActivity implements
@@ -365,7 +366,7 @@ public class  DeliveryActivity extends FragmentActivity implements
 			ScannerData = pData;
 			DeliveryActivity.WaybillFromScanner = ScannerData.GetData();
 
-			if(Check_ValidWaybill(pData.GetData())==true)
+			if(Utils.Check_ValidWaybill(pData.GetData())==true)
 			{
 
 				System.out.println(" - WC Constant ID : ");
@@ -471,17 +472,5 @@ public class  DeliveryActivity extends FragmentActivity implements
 
 	}
 
-	public static boolean Check_ValidWaybill (String s){
-
-		if (s.length() == 10 || s.length() == 12)
-		{
-			return StringUtils.isNumeric(s) == true;
-		}
-		else if (s.length() == 18)
-		{
-			return StringUtils.isAlphanumeric(s) == true;
-		}
-		return false;
-	}
 
 }

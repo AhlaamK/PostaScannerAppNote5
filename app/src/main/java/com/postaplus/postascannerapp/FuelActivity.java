@@ -38,6 +38,7 @@ import koamtac.kdc.sdk.KDCConstants;
 import koamtac.kdc.sdk.KDCData;
 import koamtac.kdc.sdk.KDCDataReceivedListener;
 import koamtac.kdc.sdk.KDCReader;
+import utils.Utils;
 
 public class FuelActivity extends MasterActivity
 implements KDCConnectionListener,KDCDataReceivedListener,KDCBarcodeDataReceivedListener {
@@ -638,7 +639,7 @@ implements KDCConnectionListener,KDCDataReceivedListener,KDCBarcodeDataReceivedL
 			  waybill = ScannerData.GetData();
 			 // StartDeliveryActivity.WaybillFromScanner = ScannerData.GetData();
 			  
-			  if(Check_ValidWaybill(pData.GetData())==true)
+			  if(Utils.Check_ValidWaybill(pData.GetData())==true)
 			  {
 				  
 				  System.out.println(" Fuelactivity ID : ");
@@ -691,19 +692,7 @@ implements KDCConnectionListener,KDCDataReceivedListener,KDCBarcodeDataReceivedL
 		  }
 		  
 	  }
-	  
-	  public static boolean Check_ValidWaybill (String s){
-			
-			if (s.length() == 10 || s.length() == 12)
-			{
-				return StringUtils.isNumeric(s) == true;
-			}
-			else if (s.length() == 18||s.length() == 15)
-			{
-				return StringUtils.isAlphanumeric(s) == true;
-			}
-			return false;
-		}
+
 	  
 	
 }

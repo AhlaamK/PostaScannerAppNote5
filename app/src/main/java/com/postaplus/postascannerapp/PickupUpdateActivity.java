@@ -55,6 +55,7 @@ import koamtac.kdc.sdk.KDCConstants;
 import koamtac.kdc.sdk.KDCData;
 import koamtac.kdc.sdk.KDCDataReceivedListener;
 import koamtac.kdc.sdk.KDCReader;
+import utils.Utils;
 import webservice.FuncClasses.CheckValidPickupWaybill;
 import webservice.FuncClasses.PickupHoldwaybills;
 import webservice.FuncClasses.setPickUpDt;
@@ -1271,7 +1272,7 @@ public class PickupUpdateActivity extends MasterActivity
 											}
 					);
 				}else if(!cbReference.isChecked()){
-					if(Check_ValidWaybill(waybillCam)==true)
+					if(Utils.Check_ValidWaybill(waybillCam)==true)
 					{
 						System.out.println("pickupupdateActivity waybill"+waybillCam);
 						_activity.runOnUiThread(new Runnable(){
@@ -1493,7 +1494,7 @@ public class PickupUpdateActivity extends MasterActivity
 				);
 
 			}else if(!cbReference.isChecked()){
-				if(Check_ValidWaybill(pData.GetData())==true)
+				if(Utils.Check_ValidWaybill(pData.GetData())==true)
 				{
 
 					System.out.println(" PickupUpdateactivity ID : ");
@@ -1938,18 +1939,7 @@ public class PickupUpdateActivity extends MasterActivity
 
 	}
 
-	public static boolean Check_ValidWaybill (String s){
 
-		if (s.length() == 10 || s.length() == 12)
-		{
-			return StringUtils.isNumeric(s) == true;
-		}
-		else if (s.length() == 18)
-		{
-			return StringUtils.isAlphanumeric(s) == true;
-		}
-		return false;
-	}
 
 	public void Check_mawb(){
 		if(masterawbtxt.getText().toString().equals(waybill)){
